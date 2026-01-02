@@ -1,6 +1,10 @@
 import { Plus, Bell, Filter } from 'lucide-react';
 
-export default function Header() {
+interface HeaderProps {
+  onNewTaskClick: () => void;
+}
+
+export default function Header({ onNewTaskClick }: HeaderProps) {
   return (
     <header className="h-24 bg-white border-b border-gray-200 flex items-center justify-between px-10 shadow-sm flex-shrink-0">
       <div className="flex items-center gap-6 min-w-0 mr-8">
@@ -25,7 +29,10 @@ export default function Header() {
           <span>Filter</span>
         </button>
         
-        <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-semibold hover:shadow-lg transition-all shadow-md hover:scale-105 flex-shrink-0 whitespace-nowrap">
+        <button 
+          onClick={onNewTaskClick}
+          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-semibold hover:shadow-lg transition-all shadow-md hover:scale-105 flex-shrink-0 whitespace-nowrap"
+        >
           <Plus size={20} />
           <span>New Task</span>
         </button>
